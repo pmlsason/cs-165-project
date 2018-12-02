@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>User List</h1>
+  {% if User_list %}
+  <ul>
+    {% for user in User_list %}
+      <li>
+        <a href="{{ user.get_absolute_url }}">{{ user.LastName }}, ({{user.FirstName}})</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no users.</p>
+  {% endif %}
+{% endblock %}

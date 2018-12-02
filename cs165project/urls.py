@@ -17,6 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 
+"""
+Patterns to make:
+/GameFinder/users/<id>
+/GameFinder/challenge
+/GameFinder/Location
+/GameFinder/Location/<id>
+/GameFinder/messages
+/GameFinder/players
+
+"""
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('GameFinder/', include('GameFinder.urls')),
