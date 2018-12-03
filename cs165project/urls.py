@@ -31,6 +31,7 @@ Patterns to make:
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('GameFinder/', include('GameFinder.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     #path('courts/',),
 ]
 
