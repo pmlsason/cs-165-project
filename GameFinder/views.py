@@ -12,11 +12,11 @@ def index(request):
 
 from django.views import generic
 
-class UserListView (generic.ListView):
+class UserListView(generic.ListView):
     model = Profile
 #    context_object_name ='user_list'
 
-class LocListView (generic.ListView):
+class LocListView(generic.ListView):
     model = Location
 #    context_object_name ='location_list'
 
@@ -24,4 +24,4 @@ class User_detail(generic.DetailView):
     model = Profile
 
 class Location_detail(generic.DetailView):
-    model= Location
+    model = Location

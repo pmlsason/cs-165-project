@@ -1,0 +1,105 @@
+/* test */
+
+.pagecontainer {
+	background-color: #eeeeee;
+}
+
+.topbar {
+	display: flex;
+	flex-direction: row;
+	height: 70px;
+	border-bottom: 1px solid #bbbbbb;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.topbarleft {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.topbarright {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+
+.topbarbtn {
+	display: flex;
+	width: 16%;
+	height: 100%;
+	font-size: 20px;
+	color: #888888;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	display: flex;
+	width: 16%;
+	height: 100%;
+	font-size: 36px;
+	color: #88aa88;
+	font-family: "Century Gothic";
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.topbarbtn:hover {
+	background-color: #eeeeee;
+	cursor: pointer;
+}
+
+.searchbar {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.searchbox {
+	border-radius: 25px;
+	border: none;
+	box-shadow: 0px 0px 4px 2px #cccccc;
+	background: none;
+	padding: 8px 16px 8px 16px;
+}
+
+.maincontainer {
+	display: flex;
+	flex-direction: row;
+}
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	padding: 0px;
+	border-right: 1px solid #bbbbbb;
+}
+
+.sidebar-item {
+	width: 100%;
+	display: flex;
+	font-size: 20px;
+	height: 40px;
+	color: #888888;
+	align-items: center;
+	justify-content: center;
+}
+
+a {
+	color: #888888;
+}
+
+a:hover {
+	color: #888888;
+}
+
+.sidebar-item:hover {
+	background-color: #eeeeee;
+	cursor: pointer;
+}
+
+.centercontent {
+
+}

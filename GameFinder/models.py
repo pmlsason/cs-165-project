@@ -55,7 +55,7 @@ class TeamSports(models.Model):
     team_id = models.ForeignKey(Team, team_id)
     sports = models.CharField(max_length=16)
 """
-class Location (models.Model):
+class Location(models.Model):
     location_id = models.AutoField(primary_key=True)
     owner = models.ForeignKey('Owner',on_delete=models.CASCADE)
     name = models.CharField(max_length =32)
@@ -69,7 +69,7 @@ class Location (models.Model):
 
 
 
-class Location_Sports (models.Model):
+class Location_Sports(models.Model):
     location = models.ForeignKey('Location',on_delete=models.CASCADE)
     sports = models.CharField(max_length=16)
     def __str__(self):
