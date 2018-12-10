@@ -1,12 +1,12 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Name: {{ Location.Name }}</h1>
+  <h1>Name: {{ Location.name }}</h1>
 
-  <p><strong>Address:</strong> {{ Location.Street } {Location.City}}</p>
-  <p><strong>Owner:</strong> {{ Location.owner.LastName }}</p>
+  <p><strong>Address:</strong> {{ Location.street } {Location.city}}</p>
+  <p><strong>Owner:</strong> {{ Location.owner.last_name }}</p>
 <!--
-  <p><strong>Sports:</strong> {% for sport in Location_Sports%} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+  <p><strong>Sports:</strong> {% for sport in LocationSports%} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
 -->
 
 {% endblock %}

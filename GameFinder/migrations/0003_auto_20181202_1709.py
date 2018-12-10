@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Location_Request',
+            name='LocationRequest',
             fields=[
                 ('request_id', models.AutoField(primary_key=True, serialize=False)),
                 ('date_time', models.DateTimeField(auto_now=True)),
@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Location_Sports',
+            name='LocationSports',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('sports', models.CharField(max_length=16)),

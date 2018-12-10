@@ -7,36 +7,34 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
-    Profile_id = models.AutoField(primary_key=True)
+    profile_id = models.AutoField(primary_key=True)
     rating = models.DecimalField(decimal_places = 2, max_digits =3, default=0)
-    FirstName = models.CharField (max_length=16, help_text='Enter First Name') #different from phase 4
-    LastName = models.CharField(max_length=16, help_text='Enter Last Name') #different from phase 4
+    first_name = models.CharField (max_length=16, help_text='Enter First Name') #different from phase 4
+    last_name = models.CharField(max_length=16, help_text='Enter Last Name') #different from phase 4
     last_active = models.DateTimeField(auto_now=True)
     def __str__(self):
-        return f'{self.Profile_id},{self.LastName}'
+        return f'{self.profile_id},{self.last_name}'
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
-        return reverse('Profiles', args=[str(self.Profile_id)])
-
-
+        return reverse('Profiles', args=[str(self.profile_id)])
 
 class Player(models.Model):
     player = models.ForeignKey('Profile',on_delete=models.CASCADE) #on delete cascade??
     def __str__(self):
-        return f'{self.player.Profile_id},{self.player.LastName}'
+        return f'{self.player.profile_id},{self.player.last_name}'
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
         return reverse('model-detail-view', args=[str(self.id)])
 
 """
-class Player_Sports(models.Model):
+class PlayerSports(models.Model):
     player_id = models.ForeignKey(Player, player_id)
     sports = models.CharField(max_length = 16)
 """
 class Owner(models.Model):
     owner = models.ForeignKey('Profile', on_delete=models.CASCADE) #on delete cascade?
     def __str__(self):
-        return f'{self.owner.Profile_id},{self.owner.LastName}'
+        return f'{self.owner.profile_id},{self.owner.last_name}'
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
         return reverse('model-detail-view', args=[str(self.id)])
@@ -49,7 +47,7 @@ class Team(models.Model):
 
 class TeamPlayers(models.Model):
     team_id = models.ForeignKey(Team, team_id)
-    players = models.ForeignKey(Profile, FirstName + LastName)
+    players = models.ForeignKey(Profile, first_name + last_name)
 
 class TeamSports(models.Model):
     team_id = models.ForeignKey(Team, team_id)
@@ -59,17 +57,15 @@ class Location(models.Model):
     location_id = models.AutoField(primary_key=True)
     owner = models.ForeignKey('Owner',on_delete=models.CASCADE)
     name = models.CharField(max_length =32)
-    Street = models.CharField(max_length = 32)#different from phase 4
-    City = models.CharField(max_length = 32) #different from phase 4
+    street = models.CharField(max_length = 32)#different from phase 4
+    city = models.CharField(max_length = 32) #different from phase 4
     def __str__(self):
         return self.name
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
         return reverse('Locations', args=[str(self.location_id)])
 
-
-
-class Location_Sports(models.Model):
+class LocationSports(models.Model):
     location = models.ForeignKey('Location',on_delete=models.CASCADE)
     sports = models.CharField(max_length=16)
     def __str__(self):
@@ -78,7 +74,6 @@ class Location_Sports(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
         return reverse('model-detail-view', args=[str(self.id)])
-
 
 class Game(models.Model):
     game_id = models.AutoField(primary_key=True)
@@ -93,7 +88,7 @@ class Game(models.Model):
         """Returns the url to access a particular instance of MyModelName."""
         return reverse('model-detail-view', args=[str(self.id)])
 
-class Location_Request(models.Model):
+class LocationRequest(models.Model):
     request_id = models.AutoField(primary_key=True)
     game = models.ForeignKey('Game', on_delete=models.CASCADE)
     location = models.ForeignKey('Location', on_delete=models.CASCADE)
@@ -117,11 +112,10 @@ class Messages(models.Model):
         """Returns the url to access a particular instance of MyModelName."""
         return reverse('model-detail-view', args=[str(self.id)])
 
-
 """
-class Rate_Profile(models.Model):
-    rater_id = models.ForeignKey(Profile, Profile_id)
-    ratee_id = models.ForeignKey(Profile, Profile_id)
+class RateProfile(models.Model):
+    rater_id = models.ForeignKey(Profile, profile_id)
+    ratee_id = models.ForeignKey(Profile, profile_id)
     rating = models.DecimalField(decimal_places = 0, max_digits =1)
     date_time = models.DateTimeField(auto_now =True)
 
@@ -132,9 +126,11 @@ class StartGame(models.Model):
 class AcceptGame(models.Model):
     player_id = models.ForeignKey(Player, player_id)
     game_id = models.ForeignKey(Game, game_id)
+
 class AccommodateGame(models.Model):
-    owner_id = models.ForeignKey(Profile, Profile_id)
+    owner_id = models.ForeignKey(Profile, profile_id)
     game_id = models.ForeignKey(Game, game_id)
+
 class RateLocation(models.Model):
     player_id = models.ForeignKey(Player, player_id)
     location_id = models.ForeignKey(Location, location_id)

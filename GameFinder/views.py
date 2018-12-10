@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from GameFinder.models import Profile, Player, Owner, Location
-from GameFinder.models import Location_Sports, Location_Request, Game, Messages
+from GameFinder.models import LocationSports, LocationRequest, Game, Messages
 
 # Create your views here.
 
@@ -12,16 +12,16 @@ def index(request):
 
 from django.views import generic
 
-class UserListView(generic.ListView):
+class UserList(generic.ListView):
     model = Profile
-#    context_object_name ='user_list'
+    #context_object_name ='user_list'
 
-class LocListView(generic.ListView):
+class LocList(generic.ListView):
     model = Location
-#    context_object_name ='location_list'
+    #context_object_name ='location_list'
 
-class User_detail(generic.DetailView):
+class UserDetail(generic.DetailView):
     model = Profile
 
-class Location_detail(generic.DetailView):
+class LocationDetail(generic.DetailView):
     model = Location

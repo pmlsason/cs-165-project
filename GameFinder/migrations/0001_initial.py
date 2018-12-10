@@ -16,8 +16,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('user_id', models.AutoField(primary_key=True, serialize=False)),
                 ('rating', models.DecimalField(decimal_places=2, max_digits=3)),
-                ('FirstName', models.CharField(help_text='Enter First Name', max_length=16)),
-                ('LastName', models.CharField(help_text='Enter Last Name', max_length=16)),
+                ('first_name', models.CharField(help_text='Enter First Name', max_length=16)),
+                ('last_name', models.CharField(help_text='Enter Last Name', max_length=16)),
                 ('last_active', models.DateTimeField(auto_now=True)),
             ],
         ),
