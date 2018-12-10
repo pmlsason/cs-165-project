@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from GameFinder.models import Profile, Player, Owner, Location
 from GameFinder.models import LocationSports, LocationRequest, Game, Messages
 
@@ -9,6 +10,9 @@ def index(request):
     num_locations = Location.objects.all().count()
     context = {'num_users': num_users, 'num_locations':num_locations}
     return render(request, 'index.html', context=context)
+
+def reg(request):
+    return render(request, 'reg.html')
 
 from django.views import generic
 

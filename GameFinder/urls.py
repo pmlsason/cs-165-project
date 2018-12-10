@@ -4,8 +4,8 @@ from . import views
 Patterns to make:
 /GameFinder/users/<id>
 /GameFinder/challenge
-/GameFinder/Location
-/GameFinder/Location/<id>
+/GameFinder/location
+/GameFinder/location/<id>
 /GameFinder/messages
 /GameFinder/players
 
@@ -17,4 +17,5 @@ urlpatterns = [
     path('users/<int:id>', views.UserDetail.as_view(), name='User-Detail'),
     path('locations/', views.LocList.as_view(), name='Locations'),
     path('locations/<int:id>', views.LocationDetail.as_view(), name='Location-Detail'),
+    path('reg/', views.reg, name='reg'),
 ]
